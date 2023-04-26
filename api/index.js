@@ -20,9 +20,12 @@ app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb://127.0.0.1:27017/mernJournal", () => {
-  console.log("Connected to MongoDB");
-});
+mongoose.connect(
+  "mongodb+srv://MohammadSuhail:mohammadsuhail@cluster0.su7k7tq.mongodb.net/mernJournal",
+  () => {
+    console.log("Connected to MongoDB");
+  }
+);
 
 app.post("/register", async (req, res) => {
   const { username, password } = req.body;
